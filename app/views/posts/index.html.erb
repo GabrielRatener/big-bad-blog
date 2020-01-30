@@ -1,0 +1,21 @@
+<h1>Posts</h1>
+
+<div class="jumbotron">
+  <ul class="list-group">
+    <% @posts.each do |post| %>
+      <li class="list-group-item">
+        <h5><%= post.title %></h5>
+        <div>
+          <%= link_to 'Read', post %> |
+          <%= link_to 'Edit', edit_post_path(post) %> |
+          <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <p id="notice"><%= notice %></p>
+</div>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
